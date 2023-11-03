@@ -15,12 +15,18 @@ export default function CheckboxesGroup({ itemsList, setItemsList }) {
     });
     setItemsList(modifiedList);
   };
+  /**
+   * Keep only unique numbers
+   */
+  const uniqueArray = Array.from(new Set(itemsList.map(JSON.stringify))).map(
+    JSON.parse
+  );
 
   return (
     <Box sx={{ display: "flex" }}>
       <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
         <FormGroup>
-          {itemsList
+          {uniqueArray
             .sort((a, b) => (a.priority < b.priority ? -1 : 1))
             .map((ele) => (
               <FormControlLabel
