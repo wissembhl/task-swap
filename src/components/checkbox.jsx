@@ -5,19 +5,9 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
-interface IItemsList {
-    priority: number
-    label: string
-    checked: boolean
-}
 
-interface ICheckboxesGroupProps {
-    itemsList: IItemsList[]
-    setItemsList: React.Dispatch<React.SetStateAction<IItemsList[]>>
-}
-
-export default function CheckboxesGroup({ itemsList, setItemsList }: ICheckboxesGroupProps) {
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+export default function CheckboxesGroup({ itemsList, setItemsList }) {
+    const handleChange = (event) => {
         const modifiedList = itemsList.map(obj => {
             if (obj.label === event.target.name) {
                 return { ...obj, checked: event.target.checked };
