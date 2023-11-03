@@ -24,6 +24,7 @@ export default function CheckboxesGroup({ itemsList, setItemsList }) {
             .sort((a, b) => (a.priority < b.priority ? -1 : 1))
             .map((ele) => (
               <FormControlLabel
+                key={ele.priority}
                 control={
                   <Checkbox
                     checked={ele.checked}

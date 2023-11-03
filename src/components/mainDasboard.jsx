@@ -3,7 +3,7 @@ import { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { MoveButton } from "./shared/moveButton";
-import CheckboxesGroup from "./checkbox";
+import CheckboxesGroup from "./checkboxesGroup";
 
 export default function MainDashboard() {
   const [firstList, setFirstList] = useState([
@@ -49,6 +49,7 @@ export default function MainDashboard() {
 
   return (
     <Stack
+    id="Main Dashboard"
       spacing={2}
       direction="row"
       sx={{
@@ -62,10 +63,10 @@ export default function MainDashboard() {
         <CheckboxesGroup itemsList={firstList} setItemsList={setFirstList} />
       </Box>
       <Stack direction="column" spacing={2}>
-        <MoveButton variant="contained" onClick={handleLeftMove}>
+        <MoveButton variant="contained" onClick={handleLeftMove} data-testid="left-move-button">
           {">"}
         </MoveButton>
-        <MoveButton variant="contained" onClick={handleRightMove}>
+        <MoveButton variant="contained" onClick={handleRightMove} data-testid="right-move-button">
           {"<"}
         </MoveButton>
       </Stack>
